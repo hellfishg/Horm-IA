@@ -15,7 +15,7 @@ class Laberinto:
 ###############################################################################
 	def permitePaso(self,xy,dirProbable):
 		z=self.__convertiraZeta(dirProbable)
-		if self.__matriz[xy[0]]   [xy[1]]   [z]=="bloq":
+		if self.__matriz [xy[0]]   [xy[1]]   [z]=="bloq":
 			return False
 		else:
 			return self.__siguientePosicion(dirProbable,xy)
@@ -87,12 +87,12 @@ class Laberinto:
 		self.__matriz[4][1][0]="ar"
 		self.__matriz[4][1][2]="ab"
 		self.__matriz[4][1][3]="iz"
-		
+
 		#02
 		self.__matriz[0][2][0]="ar"
 		#12
 		self.__matriz[1][2][0]="ar"
-		self.__matriz[1][2][3]="de"
+		self.__matriz[1][2][1]="de"
 		#22
 		self.__matriz[2][2][1]="de"
 		self.__matriz[2][2][2]="ab"
@@ -123,5 +123,3 @@ class Laberinto:
 		self.__matriz[5][3][3]="iz"
 
 ###############################################################################
-
-
