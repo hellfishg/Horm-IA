@@ -4,17 +4,17 @@ import random
 class Hormiga:
 
     def __init__(self,nombre,ciclo,posicion,iDLab):
-        self.__nombre=nombre
-        self.__ciclo=ciclo
-        self.__posicion=posicion
+        self.nombre=nombre
+        self.ciclo=ciclo
+        self.posicion=posicion
         self.iDLab=iDLab
-        self.__memoria=list()
+        self.memoria=list()
 
 
 ###############################################################################
 
-    def estado(self):
-        return self.__ciclo
+
+
 
 ###############################################################################
 
@@ -23,11 +23,11 @@ class Hormiga:
         aux=False
         while aux == False:
             randElecc=self.__eleccion()
-            aux=self.iDLab.permitePaso(self.__posicion,randElecc)
+            aux=self.iDLab.permitePaso(self.posicion,randElecc)
 
-        self.__posicion=aux
-        self.__ciclo=self.__ciclo-1
-        self.__memoria.append(randElecc)
+        self.posicion=aux
+        self.ciclo=self.ciclo-1
+        self.memoria.append(randElecc)
 
 
 ###############################################################################

@@ -35,13 +35,13 @@ class Laberinto:
 ###############################################################################
 	def __siguientePosicion(self,dire,xy):
 		if dire =="ar":
-			xy[1]=xy[1]-1
+			xy[1]-=1
 		if dire =="de":
-			xy[0]=xy[0]+1
+			xy[0]+=1
 		if dire =="ab":
-			xy[1]=xy[1]+1
+			xy[1]+=1
 		if dire =="iz":
-			xy[0]=xy[0]-1
+			xy[0]-=1
 		return xy
 ###############################################################################
 	def getEntrada(self):

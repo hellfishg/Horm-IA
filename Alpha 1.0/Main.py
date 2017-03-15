@@ -4,8 +4,17 @@ import random
 
 import Laberinto
 import Hormiga
+import Colonia
 
 
 lab=Laberinto.Laberinto()
 
-horm= Hormiga.Hormiga("pumpi",500,[0,0],lab)
+
+colony=Colonia.Colonia(10,10,lab)
+
+for i in range(1):
+    colony.avanzarHormigas()
+
+
+for i in range(10):
+    print colony.estadoHormiga(i)
