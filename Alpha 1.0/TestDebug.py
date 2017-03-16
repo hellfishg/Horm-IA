@@ -10,9 +10,9 @@ import Colonia
 lab=Laberinto.Laberinto()
 
 
-colony=Colonia.Colonia(10,10,lab)
+colony=Colonia.Colonia(10,20,lab)
 
-for i in range(1):
+for i in range(300):
     colony.avanzarHormigas()
 
 

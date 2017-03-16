@@ -12,23 +12,27 @@ class Hormiga:
 
 
 ###############################################################################
-
-
-
+    def chequearMeta(self):
+        meta=[6,2]
+        if meta==self.posicion:
+            return False
+        else:
+            return True
 
 ###############################################################################
 
     def explorar(self):
 
-        aux=False
-        while aux == False:
-            randElecc=self.__eleccion()
-            aux=self.iDLab.permitePaso(self.posicion,randElecc)
+        if self.chequearMeta():
 
-        self.posicion=aux
-        self.ciclo=self.ciclo-1
-        self.memoria.append(randElecc)
+            aux=False
+            while aux == False:
+                randElecc=self.__eleccion()
+                aux=self.iDLab.permitePaso(self.posicion,randElecc)
 
+            self.posicion=aux
+            self.ciclo-=1
+            self.memoria.append(randElecc)
 
 ###############################################################################
 
