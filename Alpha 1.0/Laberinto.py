@@ -58,6 +58,10 @@ class Laberinto:
 		print(self.__matriz)
 
 ###############################################################################
+	def getMatriz(self):
+		return self.__matriz
+
+###############################################################################
 	def __creaLaberinto(self):
 		#00
 		self.__matriz[0][0][1]="de"
