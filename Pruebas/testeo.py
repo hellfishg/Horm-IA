@@ -1,4 +1,5 @@
 import Laberinto
+import HijoProdigo
 
 ##m= [[0,0], [0,0]]
 ##m[0][1]=5
@@ -23,8 +24,8 @@ import Laberinto
     #def inicializar(self):
         #print("Inicializa Laberinto")
 
+##################################################3
+#lab=Laberinto.Laberinto()
+#lab.inicializar()
 
-lab=Laberinto.Laberinto()
-lab.inicializar()
-
-
+hijo=HijoProdigo.HijoProdigo()
