@@ -1,0 +1,13 @@
+Guía de GIT
+
+Primer paso: git pull (Se traen a la compu las actualizaciones del repositorio remoto)
+Paso Opcional: git status (Me dice en que instancia se encuentra el repositorio, que archivos se modificaron)
+
+Trabajar en el proyecto
+
+git add -A (Agrega TODOS los cambios que hice en mi proyecto para el commit)
+(Para cambios específicos, averiguar...)
+
+git commit -m "descripcion breve del cambio" (Se sube al head)
+
+git push (Se sube todo lo commiteado al repositorio remoto)

@@ -29,3 +29,5 @@ import HijoProdigo
 #lab.inicializar()
 
 hijo=HijoProdigo.HijoProdigo()
+
+print ("alho")
