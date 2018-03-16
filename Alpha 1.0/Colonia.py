@@ -2,11 +2,11 @@ import Hormiga
 
 class Colonia:
 
-    def __init__(self,cantidad,ciclos,iDLab):
+    def __init__(self,cantidad,ciclos,laberinto):
 
         self.__cantidad=cantidad
         self.__ciclos=ciclos
-        self.iDLab=iDLab
+        self.laberinto=laberinto
         self.hormigas=list()
         self.__nomNum=1
         self.__crearColonia()
@@ -26,11 +26,11 @@ class Colonia:
 
 ###############################################################################
     def __crearColonia(self):
-        #Crea inicial mente una camada de hormigas.
+        #Crea inicialmente una camada de hormigas.
 
         for i in range(self.__cantidad):
 
-            self.hormigas.append(Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.iDLab))
+            self.hormigas.append(Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.laberinto))
 
             self.__nomNum+=1
 
@@ -50,7 +50,7 @@ class Colonia:
     def __procrearHormiga(self,i):
         #Crea una homiga nueva.
 
-        self.hormigas[i]=Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.iDLab)
+        self.hormigas[i]=Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.laberinto)
 
         self.__nomNum+=1
 

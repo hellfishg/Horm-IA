@@ -2,9 +2,9 @@ import sys
 
 class Interfaz:
 
-    def __init__(self,iDlab):
+    def __init__(self,laberinto):
 
-        self.__idlab=iDlab
+        self.__laberinto=laberinto
         self.graficarLaberinto()
 
 
@@ -12,7 +12,7 @@ class Interfaz:
     def graficarLaberinto(self):
     #Dibuja uns celda + sus caminoas derecha y abajo:
 
-        mLab=self.__idlab.getMatriz()
+        mLab=self.__laberinto.getMatriz()
 
         largo=len(mLab)
 
@@ -56,7 +56,7 @@ class Interfaz:
     def __sinSalida(self,x,y):
 
         bloq=0
-        mLab=self.__idlab.getMatriz()
+        mLab=self.__laberinto.getMatriz()
 
 
         for i in range(4):
