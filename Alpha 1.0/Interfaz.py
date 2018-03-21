@@ -1,22 +1,27 @@
 import sys
+import os
 
 class Interfaz:
 
     def __init__(self,laberinto):
 
         self.__laberinto=laberinto
+
+        os.system('clear')
         self.graficarLaberinto()
+
 
 
 ###############################################################################
     def graficarLaberinto(self):
-    #Dibuja uns celda + sus caminoas derecha y abajo:
+    #Dibuja una celda + sus caminos derecha y abajo:
 
         mLab=self.__laberinto.getMatriz()
 
-        largo=len(mLab)
+        largo=len(mLab)#maximo tamano de eje x
+        alto=len(mLab[0])#maximo tamano de eje y
 
-        for y in range(len(mLab[0])):
+        for y in range(alto):
 
 
             for x in range(largo):
@@ -24,7 +29,7 @@ class Interfaz:
                 dibY=" "
 
                 if self.__sinSalida(x,y):
-                    dibX="[xx]"
+                    dibX="    "
 
 
                 if mLab[x][y][1] == "de":
@@ -38,9 +43,9 @@ class Interfaz:
                     dibY+="||"
 
 
-                self.__dibujaAca(x*6, (y*2)+1, dibX)
+                self.__dibujaAca((x*6)+50, (y*2)+21, dibX)
 
-                self.__dibujaAca(x*6, (y*2)+2 , dibY)
+                self.__dibujaAca((x*6)+50, (y*2)+22, dibY)
 
 
 

@@ -1,6 +1,7 @@
 import os
 import time
 import random
+import sys
 
 import Laberinto
 import Hormiga
@@ -9,7 +10,7 @@ import Interfaz
 
 lab=Laberinto.Laberinto()
 
-
+'''
 colony=Colonia.Colonia(10,20,lab)
 
 for i in range(300):
@@ -18,5 +19,7 @@ for i in range(300):
 
 for i in range(10):
     print colony.estadoHormiga(i)
+'''
 
-#inter=Interfaz.Interfaz(lab)
+inter=Interfaz.Interfaz(lab)
+
