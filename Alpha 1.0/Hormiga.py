@@ -1,6 +1,5 @@
 import random
 
-
 class Hormiga:
 
     def __init__(self,nombre,ciclo,posicion,laberinto):
@@ -20,7 +19,6 @@ class Hormiga:
             return True
 
 ###############################################################################
-
     def explorar(self):
 
         if self.__chequearMeta__():
@@ -35,25 +33,13 @@ class Hormiga:
             self.memoria.append(randElecc)
 
 ###############################################################################
-
     def __eleccion(self):
+        matrizDireciones = ["ar","de","ab","iz"]
         aux= random.randint(0,3)
 
-        if aux == 0:
-            dire= "ar"
-        if aux == 1:
-            dire= "de"
-        if aux == 2:
-            dire= "ab"
-        if aux == 3:
-            dire= "iz"
-
-        return dire
-
+        return matrizDireciones[aux]
 
 ###############################################################################
-
-
 
 
 

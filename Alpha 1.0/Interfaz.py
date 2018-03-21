@@ -37,7 +37,7 @@ class Interfaz:
                 if mLab[x][y][2] == "ab":
                     dibY+="||"
 
-
+                
                 self.__dibujaAca(x*6, (y*2)+1, dibX)
 
                 self.__dibujaAca(x*6, (y*2)+2 , dibY)
@@ -49,7 +49,7 @@ class Interfaz:
     #Dibuja algo en la posicion y,x
 
         sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (x, y, text))
-        sys.stdout.flush()
+        #sys.stdout.flush()
 
 ###############################################################################
 
