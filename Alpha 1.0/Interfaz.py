@@ -42,13 +42,8 @@ class Interfaz:
                 if mLab[x][y][2] == "ab":
                     dibY+="||"
 
-<<<<<<< HEAD
-                
-                self.__dibujaAca(x*6, (y*2)+1, dibX)
-=======
 
                 self.__dibujaAca((x*6)+50, (y*2)+21, dibX)
->>>>>>> d71e2420dc9a830626e20a8034e0845f42e5e496
 
                 self.__dibujaAca((x*6)+50, (y*2)+22, dibY)
 
