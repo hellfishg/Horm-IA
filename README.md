@@ -47,6 +47,8 @@ Idea:
 
 	Jugador interactivo. Antes de comenzar la "partida" el jugador resolvera el mismo el laberinto. La "victoria" será 
 	que la hormiga resuelva el laberinto con la duración del jugador o más corta.
+	
+	Se creará un documento para generar nombres aleatorios a las hormigas. Cada letra o numero en el laberinto, será 		identificado con un nombre de este documento.
 ----------------------------------------------------------------------------------------------------------
 
 +Creacion de un laberinto modular.
