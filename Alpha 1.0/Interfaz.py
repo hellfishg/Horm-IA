@@ -6,11 +6,8 @@ class Interfaz:
     def __init__(self,laberinto):
 
         self.__laberinto=laberinto
-
-        os.system('clear')
+        #os.system('clear')
         self.graficarLaberinto()
-
-
 
 ###############################################################################
     def graficarLaberinto(self):
@@ -47,14 +44,24 @@ class Interfaz:
 
                 self.__dibujaAca((x*6)+50, (y*2)+22, dibY)
 
+###############################################################################
+    def graficarHormigas(self,mHormigas):
 
+        for i in range(10):
+            coordenadas = mHormigas[i].posicion
+            x= (((coordenadas[0])*6)+51)
+            y= (((coordenadas[1])*2)+21)
+            sprite= "H" + str(i+1)
+
+            sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % ( y, x, sprite ))
+            sys.stdout.flush()
 
 ###############################################################################
-    def __dibujaAca(self,y, x, text):
+    def __dibujaAca(self,x, y, text):
     #Dibuja algo en la posicion y,x
 
-        sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (x, y, text))
-        #sys.stdout.flush()
+        sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (y, x, text))
+        sys.stdout.flush()
 
 ###############################################################################
 
