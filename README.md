@@ -49,6 +49,10 @@ Idea:
 	que la hormiga resuelva el laberinto con la duración del jugador o más corta.
 	
 	Se creará un documento para generar nombres aleatorios a las hormigas. Cada letra o numero en el laberinto, será 		identificado con un nombre de este documento.
+	
+	Guardar en un archivo el historial de hormigas para posterior revision.
+	
+	Unificar el criterio de salida por pantalla. O se fuerza todo a imprimir, o se hace con print line.
 ----------------------------------------------------------------------------------------------------------
 
 +Creacion de un laberinto modular.
