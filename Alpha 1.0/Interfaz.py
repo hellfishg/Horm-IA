@@ -40,9 +40,9 @@ class Interfaz:
                     dibY+="||"
 
 
-                self.__dibujaAca((x*6)+50, (y*2)+21, dibX)
+                self.__dibujaAca((x*6)+50, (y*2)+25, dibX)
 
-                self.__dibujaAca((x*6)+50, (y*2)+22, dibY)
+                self.__dibujaAca((x*6)+50, (y*2)+26, dibY)
 
 ###############################################################################
     def graficarHormigas(self,mHormigas):
@@ -50,11 +50,10 @@ class Interfaz:
         for i in range(10):
             coordenadas = mHormigas[i].posicion
             x= (((coordenadas[0])*6)+51)
-            y= (((coordenadas[1])*2)+21)
+            y= (((coordenadas[1])*2)+25)
             sprite= "H" + str(i+1)
 
-            sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % ( y, x, sprite ))
-            sys.stdout.flush()
+            self.__dibujaAca(x, y, sprite)
 
 ###############################################################################
     def __dibujaAca(self,x, y, text):
