@@ -1,12 +1,15 @@
+
 import sys
 import os
 
 class Interfaz:
 
-    def __init__(self,laberinto):
+    def __init__(self,laberinto,colonia):
 
-        self.__laberinto=laberinto
-        #os.system('clear')
+        self.__laberinto=colonia.laberinto
+        self.__colonia=colonia
+        self.pos_Lab_X=50
+        self.pos_Lab_Y=15
         self.graficarLaberinto()
 
 ###############################################################################
@@ -19,8 +22,6 @@ class Interfaz:
         alto=len(mLab[0])#maximo tamano de eje y
 
         for y in range(alto):
-
-
             for x in range(largo):
                 dibX="[  ]"
                 dibY=" "
@@ -28,42 +29,55 @@ class Interfaz:
                 if self.__sinSalida(x,y):
                     dibX="    "
 
-
                 if mLab[x][y][1] == "de":
                     dibX+="=="
 
                 else:
                     dibX+="  "
 
-
                 if mLab[x][y][2] == "ab":
                     dibY+="||"
 
+                X=self.pos_Lab_X
+                Y=self.pos_Lab_Y
 
-                self.__dibujaAca((x*6)+50, (y*2)+25, dibX)
+                self.__dibujaAca((x*6)+ X , (y*2)+ Y, dibX)
 
-                self.__dibujaAca((x*6)+50, (y*2)+26, dibY)
+                self.__dibujaAca((x*6)+ X , (y*2)+ Y+1 , dibY)
 
 ###############################################################################
-    def graficarHormigas(self,mHormigas):
+    def graficarHormigas(self):
+
+        mHormigas= self.__colonia.getHormigasEnMatriz()
+
+        X=self.pos_Lab_X
+        Y=self.pos_Lab_Y
 
         for i in range(10):
             coordenadas = mHormigas[i].posicion
-            x= (((coordenadas[0])*6)+51)
-            y= (((coordenadas[1])*2)+25)
-            sprite= "H" + str(i+1)
+            x= (((coordenadas[0])*6)+ X+1)
+            y= (((coordenadas[1])*2)+ Y)
+            sprite= "H" + str(i)
 
-            self.__dibujaAca(x, y, sprite)
+            self.__dibujaAca(x, y, chr(27)+"[0;35m" + str(sprite))
+
+###############################################################################
+    def graficarDescripcionHormigasVivas(self):
+
+        cantHormigasVivas= len(self.__colonia.getHormigasEnMatriz())
+
+        for i in range(cantHormigasVivas):
+            descripcion=self.__colonia.estadoHormiga(i)
+            self.__dibujaAca(10, 13+  i,chr(27)+"[1;32m"+ "H" + str(i)+ ":" + str(descripcion))
 
 ###############################################################################
     def __dibujaAca(self,x, y, text):
-    #Dibuja algo en la posicion y,x
+    #Dibuja un string en la posicion y,x
 
         sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (y, x, text))
         sys.stdout.flush()
 
 ###############################################################################
-
     def __sinSalida(self,x,y):
 
         bloq=0
@@ -84,10 +98,7 @@ class Interfaz:
 
             return False
 
-
-
 ###############################################################################
-
 
 
 ###############################################################################

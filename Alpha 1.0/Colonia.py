@@ -1,3 +1,4 @@
+
 import Hormiga
 
 class Colonia:
