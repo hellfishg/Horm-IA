@@ -4,10 +4,12 @@ import os
 
 class Interfaz:
 
-    def __init__(self,laberinto,colonia):
+    def __init__(self,laberinto,colonia,ciclos):
 
         self.__laberinto=colonia.laberinto
         self.__colonia=colonia
+        self.__ciclos=ciclos
+        self.__ciclosRestantes=ciclos
         self.pos_Lab_X=50
         self.pos_Lab_Y=15
         self.graficarLaberinto()
@@ -64,11 +66,16 @@ class Interfaz:
 ###############################################################################
     def graficarDescripcionHormigasVivas(self):
 
+        self.__ciclosRestantes -= 1
         cantHormigasVivas= len(self.__colonia.getHormigasEnMatriz())
 
         for i in range(cantHormigasVivas):
             descripcion=self.__colonia.estadoHormiga(i)
             self.__dibujaAca(10, 13+  i,chr(27)+"[1;32m"+ "H" + str(i)+ ":" + str(descripcion))
+            #estado de los ciclos:
+            ciclosTotal=self.__ciclos
+            ciclosRestante=self.__ciclosRestantes
+            self.__dibujaAca(10, 10, "CICLOS: " + str(ciclosRestante) + "/" + str(ciclosTotal) )
 
 ###############################################################################
     def __dibujaAca(self,x, y, text):

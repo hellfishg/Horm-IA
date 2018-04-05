@@ -14,7 +14,7 @@ import Interfaz
 os.system('clear')
 lab=Laberinto.Laberinto()
 colony=Colonia.Colonia(10,20,lab)
-inter=Interfaz.Interfaz(lab,colony)
+inter=Interfaz.Interfaz(lab,colony,600)
 
 for i in range(600): #ciclos de vida de la colonia
 

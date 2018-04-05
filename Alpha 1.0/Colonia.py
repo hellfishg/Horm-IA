@@ -6,7 +6,7 @@ class Colonia:
     def __init__(self,cantidad,ciclos,laberinto):
 
         self.__cantidad=cantidad
-        self.__ciclos=ciclos
+        self.ciclos=ciclos
         self.laberinto=laberinto
         self.hormigas=list()
         self.__nomNum=1
@@ -24,18 +24,15 @@ class Colonia:
             self.hormigas[i].explorar()
 
 
-
 ###############################################################################
     def __crearColonia(self):
         #Crea inicialmente una camada de hormigas.
 
         for i in range(self.__cantidad):
 
-            self.hormigas.append(Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.laberinto))
+            self.hormigas.append(Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.ciclos,[0,0],self.laberinto))
 
             self.__nomNum+=1
-
-
 
 ###############################################################################
     def __comprobarEstadoDeColonia(self):
@@ -51,7 +48,7 @@ class Colonia:
     def __procrearHormiga(self,i):
         #Crea una homiga nueva.
 
-        self.hormigas[i]=Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.__ciclos,[0,0],self.laberinto)
+        self.hormigas[i]=Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.ciclos,[0,0],self.laberinto)
 
         self.__nomNum+=1
 
