@@ -7,11 +7,10 @@ class Laberinto:
 		aux=4
 		self.__matriz=[[["bloq"for a in range(aux)]for b in range(y)]for c in range(x)]
 		self.__creaLaberinto()
-		self.__entrada="0,0"
-		self.__salida="6,2"
+		self.__entrada=[0,0]
+		self.__salida=[6,2]
 
 ###############################################################################
-
 
 
 ###############################################################################

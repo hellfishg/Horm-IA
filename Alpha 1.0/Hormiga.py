@@ -7,22 +7,24 @@ class Hormiga:
         self.ciclo=ciclo
         self.posicion=posicion
         self.laberinto=laberinto
-        self.memoria=list()
-
+        self.__metaActual=laberinto.getSalida()
+        self.__memoria=list()
+        self.__feromonas=list()
 
 ###############################################################################
-    def __chequearMeta__(self):
-        meta=[6,2]
-        if meta==self.posicion:
+    def __chequearMeta(self):
+
+        if self.__metaActual == self.posicion and self.__metaActual == self.laberinto.getSalida():
+
+            self.transferirFeromonas(self.obtenerMemoria())
+
             return False
         else:
             return True
 
 ###############################################################################
     def explorar(self):
-
-        if self.__chequearMeta__():
-
+        if self.__chequearMeta():
             aux=False
             while aux == False:
                 randElecc=self.__eleccion()
@@ -30,7 +32,7 @@ class Hormiga:
 
             self.posicion=aux
             self.ciclo-=1
-            self.memoria.append(randElecc)
+            self.__memoria.append(randElecc)
 
 ###############################################################################
     def __eleccion(self):
@@ -40,15 +42,25 @@ class Hormiga:
         return matrizDireciones[aux]
 
 ###############################################################################
+    def explorarConFeromonas(self):
+        #no esta terminado
+        if self.__chequearMeta__():
 
 
+            self.posicion=aux
+            self.ciclo-=1
+            self.__memoria.append(randElecc)
 
 ###############################################################################
-
-
+    def obtenerMemoria(self):
+        return self.__memoria
 
 ###############################################################################
+    def transferirFeromonas(self,memoria):
+        self.__feromonas = memoria
+        self.__feromonas.reverse()
 
+###############################################################################
 
 
 ###############################################################################
