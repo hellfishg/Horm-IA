@@ -113,7 +113,7 @@ class Laberinto:
 		self.__matriz[5][2][1]="de"
 		self.__matriz[5][2][2]="ab"
 		self.__matriz[5][2][3]="iz"
-		#62
+		#62 -meta actual
 		self.__matriz[6][2][3]="iz"
 		#23
 		self.__matriz[2][3][0]="ar"

@@ -13,16 +13,18 @@ import Interfaz
 
 os.system('clear')
 lab=Laberinto.Laberinto()
-colony=Colonia.Colonia(10,20,lab)
-inter=Interfaz.Interfaz(lab,colony,600)
+colony=Colonia.Colonia(20,60,lab)
+inter=Interfaz.Interfaz(lab,colony,5000)
 
-for i in range(600): #ciclos de vida de la colonia
+for i in range(5000): #ciclos de vida de la colonia
 
     colony.avanzarHormigas()
     inter.graficarDescripcionHormigasVivas()
     inter.graficarLaberinto()
     inter.graficarHormigas()
-    #time.sleep(3)
+    #time.sleep(0.2)
+
+
 
 # hormigas=colony.getHormigasEnMatriz()
 # print (hormigas[0].obtenerMemoria())

@@ -55,7 +55,7 @@ class Interfaz:
         X=self.pos_Lab_X
         Y=self.pos_Lab_Y
 
-        for i in range(10):
+        for i in range(self.__colonia.getCantidad()):
             coordenadas = mHormigas[i].posicion
             x= (((coordenadas[0])*6)+ X+1)
             y= (((coordenadas[1])*2)+ Y)

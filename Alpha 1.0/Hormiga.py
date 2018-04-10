@@ -14,13 +14,23 @@ class Hormiga:
 ###############################################################################
     def __chequearMeta(self):
 
-        if self.__metaActual == self.posicion and self.__metaActual == self.laberinto.getSalida():
+        if self.posicion == self.__metaActual:
+            if len(self.__feromonas) < 2:
+                #llego a al recurso:
+                self.__feromonas = self.__memoria
+                self.__memoria=list()
+                self.__metaActual= self.laberinto.getEntrada()
+                return True
+            else:
+                #llego a la colonia:
+                #comparar si la memoria es menor a las feromonas mejora el algoritmo:
+                if len(self.__memoria) < len(self.__feromonas):
+                    self.__feromonas= self.__memoriaReversa(self.__memoria)
 
-            self.transferirFeromonas(self.obtenerMemoria())
-
-            return False
+                return False
         else:
             return True
+
 
 ###############################################################################
     def explorar(self):
@@ -44,12 +54,32 @@ class Hormiga:
 ###############################################################################
     def explorarConFeromonas(self):
         #no esta terminado
-        if self.__chequearMeta__():
+        self.__chequearMeta__()
 
 
-            self.posicion=aux
-            self.ciclo-=1
-            self.__memoria.append(randElecc)
+        self.posicion=aux
+        self.ciclo-=1
+        self.__memoria.append(randElecc)
+
+###############################################################################
+    def __memoriaReversa(self,memo):
+        #invierte el las desiciones tomadas en memoria tanto de direccion como de orden.
+        memoria=memo
+        memoria.reverse()
+        aux=""
+        for i in range(len(memoria)):
+            if memoria[i] == "de":
+                aux="iz"
+            if memoria[i] == "iz":
+                aux="de"
+            if memoria[i] == "ar":
+                aux="ab"
+            if memoria[i] == "ab":
+                aux="ar"
+
+            memoria[i]=aux
+
+        return memoria
 
 ###############################################################################
     def obtenerMemoria(self):
@@ -57,8 +87,7 @@ class Hormiga:
 
 ###############################################################################
     def transferirFeromonas(self,memoria):
-        self.__feromonas = memoria
-        self.__feromonas.reverse()
+        return self.__feromonas
 
 ###############################################################################
 
