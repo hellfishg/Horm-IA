@@ -1,4 +1,4 @@
-
+import random
 import Hormiga
 
 class Colonia:
@@ -9,7 +9,7 @@ class Colonia:
         self.ciclos=ciclos
         self.laberinto=laberinto
         self.hormigas=list()
-        self.__nomNum=1
+        #self.__nomNum=1
         self.__crearColonia()
 
 
@@ -25,10 +25,21 @@ class Colonia:
     def __crearColonia(self):
         #Crea inicialmente una camada de hormigas.
         for i in range(self.__cantidad):
+            nombre=self.nombrarHormiga()
+            self.hormigas.append(Hormiga.Hormiga(nombre,self.ciclos,[0,0],self.laberinto))
+            
+            #self.__nomNum+=1
+###############################################################################
+    def nombrarHormiga(self):
+        matrizNom=list()
+        archivo=open("../Textos/NomHormiga.txt", "r")
 
-            self.hormigas.append(Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.ciclos,[0,0],self.laberinto))
+        for nombre in archivo.readlines():
+            matrizNom.append(nombre.rstrip('\n'))
+            archivo.close()
+            num=random.randint(0,len(matrizNom)-1)
 
-            self.__nomNum+=1
+        return matrizNom[num]
 
 ###############################################################################
     def __comprobarEstadoDeColonia(self):
@@ -41,9 +52,9 @@ class Colonia:
 ###############################################################################
     def __procrearHormiga(self,i):
         #Crea una homiga nueva.
-        self.hormigas[i]=Hormiga.Hormiga("hormiga "+str(self.__nomNum),self.ciclos,[0,0],self.laberinto)
+        self.hormigas[i]=Hormiga.Hormiga(nombre,self.ciclos,[0,0],self.laberinto)
 
-        self.__nomNum+=1
+        #self.__nomNum+=1
 
 ###############################################################################
     def estadoHormiga(self,i):
