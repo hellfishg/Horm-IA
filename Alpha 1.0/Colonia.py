@@ -27,7 +27,7 @@ class Colonia:
         for i in range(self.__cantidad):
             nombre=self.nombrarHormiga()
             self.hormigas.append(Hormiga.Hormiga(nombre,self.ciclos,[0,0],self.laberinto))
-            
+
             #self.__nomNum+=1
 ###############################################################################
     def nombrarHormiga(self):
@@ -52,6 +52,7 @@ class Colonia:
 ###############################################################################
     def __procrearHormiga(self,i):
         #Crea una homiga nueva.
+        nombre=self.nombrarHormiga()
         self.hormigas[i]=Hormiga.Hormiga(nombre,self.ciclos,[0,0],self.laberinto)
 
         #self.__nomNum+=1
