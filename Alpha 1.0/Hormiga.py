@@ -10,6 +10,7 @@ class Hormiga:
         self.__metaActual=laberinto.getSalida()
         self.__memoria=list()
         self.__feromonas=list()
+        self.llego=False
 
 ###############################################################################
     def __chequearMeta(self):
@@ -43,6 +44,10 @@ class Hormiga:
             self.posicion=aux
             self.ciclo-=1
             self.__memoria.append(randElecc)
+
+            return True
+        else:
+            return False
 
 ###############################################################################
     def __eleccion(self):
@@ -91,6 +96,6 @@ class Hormiga:
 
 ###############################################################################
     def __repr__(self):
-        return "<Hormiga: {} en {}>".format(self.nombre,self.posicion)
+        return "+Hormiga: {} en {} /Vida restante: {}'\n' |->Feromona: {}'\n'".format(self.nombre,self.posicion,self.ciclo,self.__feromonas)
 
 ###############################################################################

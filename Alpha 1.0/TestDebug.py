@@ -10,10 +10,12 @@ import Laberinto
 import Hormiga
 import Colonia
 import Interfaz
+import Log
 
 cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no default.
+log=Log.Log()
 lab=Laberinto.Laberinto()
-colony=Colonia.Colonia(20,60,lab)
+colony=Colonia.Colonia(20,60,lab,log)
 inter=Interfaz.Interfaz(lab,colony,5000)
 
 for i in range(5000): #ciclos de vida de la colonia
@@ -23,12 +25,11 @@ for i in range(5000): #ciclos de vida de la colonia
     inter.graficarDescripcionHormigasVivas()
     inter.graficarLaberinto()
     inter.graficarHormigas()
-    time.sleep(0.1)
+    time.sleep(0.0)
+
+log.guardarEnArchivo()
+inter.devolverInforme(log.informe)
 
 
-# hormigas=colony.getHormigasEnMatriz()
-# print (hormigas[0].obtenerMemoria())
-# print (hormigas[1].obtenerMemoria())
-# hormigas[7].transferirFeromonas(hormigas[1].obtenerMemoria())
 
 ###################3

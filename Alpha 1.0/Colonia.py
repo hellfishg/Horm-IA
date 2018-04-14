@@ -3,13 +3,13 @@ import Hormiga
 
 class Colonia:
 
-    def __init__(self,cantidad,ciclos,laberinto):
+    def __init__(self,cantidad,ciclos,laberinto,log):
 
         self.__cantidad=cantidad
         self.ciclos=ciclos
         self.laberinto=laberinto
+        self.log=log
         self.hormigas=list()
-        #self.__nomNum=1
         self.__crearColonia()
 
 
@@ -19,7 +19,10 @@ class Colonia:
         self.__comprobarEstadoDeColonia()#busca hormigas muertas y remplaza.
 
         for i in range(self.__cantidad):
-            self.hormigas[i].explorar()
+
+            if self.hormigas[i].explorar() == False and self.hormigas[i].llego == False:
+                self.log.agregarInforme(self.hormigas[i])
+                self.hormigas[i].llego=True
 
 ###############################################################################
     def __crearColonia(self):
@@ -55,10 +58,9 @@ class Colonia:
         nombre=self.nombrarHormiga()
         self.hormigas[i]=Hormiga.Hormiga(nombre,self.ciclos,[0,0],self.laberinto)
 
-        #self.__nomNum+=1
-
 ###############################################################################
     def estadoHormiga(self,i):
+        #ver si esto sirve actuamente.
         estado=(self.hormigas[i].nombre,self.hormigas[i].posicion)
         return estado
 
