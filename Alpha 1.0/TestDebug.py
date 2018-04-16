@@ -25,7 +25,7 @@ for i in range(5000): #ciclos de vida de la colonia
     inter.graficarDescripcionHormigasVivas()
     inter.graficarLaberinto()
     inter.graficarHormigas()
-    time.sleep(0.0)
+    time.sleep(0.1)
 
 log.guardarEnArchivo()
 inter.devolverInforme(log.informe)
