@@ -11,14 +11,19 @@ import Hormiga
 import Colonia
 import Interfaz
 import Log
+import MenuInicio
+
 
 cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no default.
+
+setea=MenuInicio.pantalla()
+print(setea)
 log=Log.Log()
 lab=Laberinto.Laberinto()
-colony=Colonia.Colonia(20,60,lab,log)
-inter=Interfaz.Interfaz(lab,colony,5000)
+colony=Colonia.Colonia(setea[2],setea[1],lab,log)
+inter=Interfaz.Interfaz(lab,colony,setea[0])
 
-for i in range(5000): #ciclos de vida de la colonia
+for i in range(setea[0]): #ciclos de vida de la colonia
 
     os.system('clear')
     colony.avanzarHormigas()

@@ -115,6 +115,8 @@ class Interfaz:
             print(info)
 
 ###############################################################################
+    
+
 
 '''
 El formato de los codigos es, como habreis podido observar:
