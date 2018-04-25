@@ -1,0 +1,20 @@
+Laberinto random
+Algoritmo de Mina
+
+-Definir tamaño de x (Variable)
+-Definir tamaño de y (Variable)
+-Matriz con todo en string "bloq"
+-Segun la cantidad de posiciones de y, determinar donde estará la entrada. Entre todas las posiciones de y, y la posición 0 de x.
+-A partir de la entrada, definir cuadrantes, donde la entrada es 1-1, a la derecha 2-1, abajo 1-2 y abajo a la derecha 2-2. Cada camino abierto será 1-1 y sus casillas próximas con las que forma un cuadrante, serán 2-1, 1-2 y 2-2.
+-Crear función con: 
+	vector de 4 posiciones: Tira random un número del 1 al 4 que Determinará la cantidad de caminos abiertos con los que estará unida la casilla abierta.
+	vector de 4 posiciones: Tira random entre "ar", "de", "ab", "iz", la cantidad de veces determinada por el número random anterior. Determinará la dirección de las casillas que se abrirán.
+		Si: "ar", "de", "ab" o "iz" ya salió, tira de nuevo.
+		Si: hay 3 de los 4 cuadrantes 1-1, 2-1, 1-2 y 2-2 abiertos, tira de nuevo.
+		CUIDADO! Puede pasar que buclee sin poder seguir abriendo caminos. En el caso que eso pase, se podrá setear una cantidad de intentos determinada y en caso de que se termine sin resolver un camino, se restará 1 al número random que determinó la cantidad de casillas unidas a la casilla abierta.
+
+
+
+
+
+
