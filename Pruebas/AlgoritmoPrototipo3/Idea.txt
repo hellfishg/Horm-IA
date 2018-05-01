@@ -1,0 +1,6 @@
+Idea: Crear un algoritmo que genere un camino random desdes el punto A hasta el punto B.
+El camino tendra una cantidad aproximada de ciclos para encontrar la salida, llegando aproximadamente al 70% de sus recursos, intentara forzar por probabilidad ir hacia la direccion de la salida proxima.
+
+Una vez que el camino esta definido y tiene entrada y salido. se intentara recorrerlo de forma tal que cada cierta cantidad de pasos randoms, trata de generar mini estructuras que habran caminos y saquen ramas hacia varias direcciones.Asi hasta termina todo el recorrido.
+
+Esto intenta generar un randomicidad que permita hacer un laberinto medianamente funcional. pudiendo hacerlo mas o menos complejo segun los parametros de ciclos y randomicidad final.
