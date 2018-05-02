@@ -9,19 +9,48 @@ class CreadorLab3:
         self.salida="de" #hacer generico
         self.posicionActual=entrada
 
-        self.treintaPorciento= int(self.ciclos * 0.30)
-        self.diezPorciento= int(self.ciclos * 0.10)
+        self.treintaPorciento= int(ciclos * 0.30)
+        self.diezPorciento= int(ciclos * 0.10)
 
         self.matriz=[[["bloq"for a in range(4)]for b in range(self.Y)]for c in range(self.X)]
-        self.creaLaberinto() #solo para debug
 
 ###############################################################################
     def crearCaminoPrincipal(self):
-        #Marca el camino principal por la matriz de laberinto.
-
+        #Crea el camino principal por la matriz de laberinto.
         restricciones = self.controlarBordes(self.posicionActual)
-        dirRand = self.aleatoriedadPorCiclos(restricciones)
-        self.posicionActual = self.cavarCamino(dirRand)
+
+        while self.noEstarEnLaSalida(restricciones):
+            dirRand = self.aleatoriedadPorCiclos(restricciones)
+            self.posicionActual = self.cavarCamino(dirRand)
+            restricciones = self.controlarBordes(self.posicionActual)
+            self.ciclos-=1
+
+###############################################################################
+    def noEstarEnLaSalida(self,restricciones):
+        #Regresa true o false si se esta en una pared de salida:
+        try:
+            restricciones.index(self.salida)
+            return False
+        except ValueError:
+            return True
+
+###############################################################################
+    def controlarBordes(self,pos):
+        #funcion dedicada a prohibir salirse de los bordes de la matriz
+        x=pos[0]
+        y=pos[1]
+        restricciones=list()
+
+        if x == 0:
+            restricciones.append("iz")
+        if y == 0:
+            restricciones.append("ar")
+        if x ==(self.X)-1:
+            restricciones.append("de")
+        if y ==(self.Y)-1:
+            restricciones.append("ab")
+
+        return restricciones
 
 ###############################################################################
     def aleatoriedadPorCiclos(self,restricciones):
@@ -35,7 +64,7 @@ class CreadorLab3:
             direccionesRand.append(self.salida)
 
         #Aca borra las restricciones de las probabilidades
-        if len(restricciones) != 0:#si no hay restricciones
+        if restricciones != None:#si no hay restricciones
             for i in range(len(restricciones)):
                 direccionesRand.remove(restricciones[i])
 
@@ -45,88 +74,50 @@ class CreadorLab3:
 ###############################################################################
     def cavarCamino(self,dire):
         #Crea un camino segun la eleccion, y regresa la proxima posicion
+        direcciones=["ar","de","ab","iz"]
 
-        #!!ME QUEDE ACA!
-        pass
+        x=self.posicionActual[0]
+        y=self.posicionActual[1]
+        z=direcciones.index(dire)
+
+        self.matriz[x][y][z]=dire #Graba el cambio en el laberinto.
+
+        #Necesita habilitar el camino tambien en la otra posicion:
+        direSig=self.invertirDire(dire)
+        xySig=self.siguientePosicion(dire,self.posicionActual)
+        zSig=direcciones.index(direSig)
+
+        self.matriz[xySig[0]][xySig[1]][zSig]=direSig#Graba la salida en la sig.posicion
+
+        return xySig
 
 ###############################################################################
-    def controlarBordes(self,posicionActual):
-        #funcion dedicada a prohibir salirse de los bordes de la matriz
-        #mina ya la tiene definida.
-        pass
+    def siguientePosicion(self,dire,xy):
+    	if dire =="ar":
+    		xy[1]-=1
+    	if dire =="de":
+    		xy[0]+=1
+    	if dire =="ab":
+    		xy[1]+=1
+    	if dire =="iz":
+    		xy[0]-=1
+    	return xy
+###############################################################################
+    def invertirDire(self,dire):
+        if dire =="ar":
+        	z="ab"
+        if dire =="de":
+        	z="iz"
+        if dire =="ab":
+        	z="ar"
+        if dire =="iz":
+        	z="de"
+        return z
 ###############################################################################
     def ramificar(self):
         #crea aleatoriamente ramificaciones en el camino principal
         #!!balancear
         pass
-###############################################################################
-    def creaLaberinto(self):
-        #funcion de debug.
-        #00
-        self.matriz[0][0][1]="de"
-        #10
-        self.matriz[1][0][2]="ab"
-        self.matriz[1][0][3]="iz"
-        #20
-        self.matriz[2][0][1]="de"
-        #30
-        self.matriz[3][0][3]="iz"
-        self.matriz[3][0][1]="de"
-        #40
-        self.matriz[4][0][3]="iz"
-        self.matriz[4][0][2]="ab"
-        #01
-        self.matriz[0][1][1]="de"
-        self.matriz[0][1][2]="ab"
-        #11
-        self.matriz[1][1][0]="ar"
-        self.matriz[1][1][1]="de"
-        self.matriz[1][1][2]="ab"
-        self.matriz[1][1][3]="iz"
-        #21
-        self.matriz[2][1][3]="iz"
-        #31
-        self.matriz[3][1][1]="de"
-        self.matriz[3][1][2]="ab"
-        #41
-        self.matriz[4][1][0]="ar"
-        self.matriz[4][1][2]="ab"
-        self.matriz[4][1][3]="iz"
-
-        #02
-        self.matriz[0][2][0]="ar"
-        #12
-        self.matriz[1][2][0]="ar"
-        self.matriz[1][2][1]="de"
-        #22
-        self.matriz[2][2][1]="de"
-        self.matriz[2][2][2]="ab"
-        self.matriz[2][2][3]="iz"
-        #32
-        self.matriz[3][2][0]="ar"
-        self.matriz[3][2][3]="iz"
-        #42
-        self.matriz[4][2][0]="ar"
-        self.matriz[4][2][1]="de"
-        self.matriz[4][2][2]="ab"
-        #52
-        self.matriz[5][2][1]="de"
-        self.matriz[5][2][2]="ab"
-        self.matriz[5][2][3]="iz"
-        #62 -meta actual
-        self.matriz[6][2][3]="iz"
-        #23
-        self.matriz[2][3][0]="ar"
-        #33
-        self.matriz[3][3][1]="de"
-        #43
-        self.matriz[4][3][0]="ar"
-        self.matriz[4][3][1]="de"
-        self.matriz[4][3][3]="iz"
-        #53
-        self.matriz[5][3][0]="ar"
-        self.matriz[5][3][3]="iz"
-
 ###############################################################################
 ###############################################################################
 ###############################################################################
