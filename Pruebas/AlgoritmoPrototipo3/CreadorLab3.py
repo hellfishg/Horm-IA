@@ -2,11 +2,11 @@ import random
 
 class CreadorLab3:
 
-    def __init__(self,largo,alto,entrada,ciclos):
+    def __init__(self,largo,alto,entrada,salida,ciclos):
         self.X=largo
         self.Y=alto
         self.ciclos=ciclos
-        self.salida="de" #hacer generico
+        self.salida=salida
         self.posicionActual=entrada
 
         self.treintaPorciento= int(ciclos * 0.30)
@@ -33,7 +33,6 @@ class CreadorLab3:
             return False
         except ValueError:
             return True
-
 ###############################################################################
     def controlarBordes(self,pos):
         #funcion dedicada a prohibir salirse de los bordes de la matriz
@@ -51,7 +50,6 @@ class CreadorLab3:
             restricciones.append("ab")
 
         return restricciones
-
 ###############################################################################
     def aleatoriedadPorCiclos(self,restricciones):
         #reduce la aleatoriedad segun se va quedando sin ciclos.
@@ -61,7 +59,6 @@ class CreadorLab3:
             direccionesRand.append(self.salida)
         if self.ciclos <= self.diezPorciento:
             direccionesRand.append(self.salida)
-            direccionesRand.append(self.salida)
 
         #Aca borra las restricciones de las probabilidades
         if restricciones != None:#si no hay restricciones
@@ -70,7 +67,6 @@ class CreadorLab3:
 
         i=random.randint(0,len(direccionesRand)-1)
         return direccionesRand[i]
-
 ###############################################################################
     def cavarCamino(self,dire):
         #Crea un camino segun la eleccion, y regresa la proxima posicion
@@ -90,7 +86,6 @@ class CreadorLab3:
         self.matriz[xySig[0]][xySig[1]][zSig]=direSig#Graba la salida en la sig.posicion
 
         return xySig
-
 ###############################################################################
     def siguientePosicion(self,dire,xy):
     	if dire =="ar":

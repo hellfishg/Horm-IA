@@ -3,12 +3,13 @@ import Hormiga
 
 class Colonia:
 
-    def __init__(self,cantidad,ciclos,laberinto,log):
+    def __init__(self,cantidad,ciclos,laberinto,log,rempAuto):
 
         self.__cantidad=cantidad
         self.ciclos=ciclos
         self.laberinto=laberinto
         self.log=log
+        self.remplazoAutomatico=rempAuto
         self.hormigas=list()
         self.feromonasColonia=list()
         self.feromonaNueva=None
@@ -28,7 +29,9 @@ class Colonia:
                     self.hormigas[i].llego=True
                     self.feromonaNueva = self.hormigas[i].transferirFeromonas()
                     self.__elegirMejorFeromona()
-                    self.hormigas[i].ciclo=0#sacar esto para guardar la hormiga o dejarlo, la mata y remplaza
+
+                    if self.remplazoAutomatico == 'n':#Decide si las hormigas ganadoras quedan o se remplazan de la lista.
+                        self.hormigas[i].ciclo=0
 
             else:#explorar con feromonas.
                 self.hormigas[i].explorarConFeromonas()
