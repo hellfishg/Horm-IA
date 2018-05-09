@@ -15,7 +15,7 @@ class CreadorLab3:
         self.matriz=[[["bloq"for a in range(4)]for b in range(self.Y)]for c in range(self.X)]
 
 ###############################################################################
-    def crearCaminoPrincipal(self):
+    def crearLaberinto(self):
         #Crea el camino principal por la matriz de laberinto.
         restricciones = self.controlarBordes(self.posicionActual)
 
@@ -61,7 +61,7 @@ class CreadorLab3:
             direccionesRand.append(self.salida)
 
         #Aca borra las restricciones de las probabilidades
-        if restricciones != None:#si no hay restricciones
+        if restricciones != None:#si hay restricciones
             for i in range(len(restricciones)):
                 direccionesRand.remove(restricciones[i])
 
@@ -109,11 +109,5 @@ class CreadorLab3:
         	z="de"
         return z
 ###############################################################################
-    def ramificar(self):
-        #crea aleatoriamente ramificaciones en el camino principal
-        #!!balancear
-        pass
-###############################################################################
-###############################################################################
-###############################################################################
+
 ###############################################################################

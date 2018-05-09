@@ -4,8 +4,8 @@ import os
 class DibujadorLabs:
 
     def __init__(self):
-        self.pos_Lab_X=50 #50  #debug:80
-        self.pos_Lab_Y=15 #15  #debug:10
+        self.pos_Lab_X=10 #50  #debug:80
+        self.pos_Lab_Y=10 #15  #debug:10
         #os.system('clear')
 
 ###############################################################################
