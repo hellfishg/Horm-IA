@@ -65,10 +65,6 @@ class CreadorLab2:
 					aux=False
 		return(dirAsignadas)
 ###############################################################################
-	def chequearAglomeracion(self):
-		#Esta es la funcion de facu
-		return True
-###############################################################################
 	def avanzarCaminos(self,direACavar):
 	#Crea las ramas del troco principal
 		ultPosRamas=list()
@@ -122,6 +118,7 @@ class CreadorLab2:
 		direSig=self.invertirDire(dire)
 		xySig=self.siguientePosicion(dire,posActual)
 		zSig=direcciones.index(direSig)
+		
 		self.matriz[xySig[0]][xySig[1]][zSig]=direSig #Graba la salida en la sig.posicion
 
 		return xySig
