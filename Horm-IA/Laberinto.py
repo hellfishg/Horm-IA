@@ -1,17 +1,17 @@
 class Laberinto:
 ###############################################################################
-	def __init__(self):
+	def __init__(self,matriz,entrada,salida):
 
-		x=7
-		y=4
-		aux=4
-		self.__matriz=[[["bloq"for a in range(aux)]for b in range(y)]for c in range(x)]
-		self.__creaLaberinto()
-		self.__entrada=[0,0]
-		self.__salida=[6,2]
-
-###############################################################################
-
+		# x=7
+		# y=4
+		# aux=4
+		#self.__matriz=[[["bloq"for a in range(aux)]for b in range(y)]for c in range(x)]
+		#self.__creaLaberinto()
+		# self.__entrada=[0,0]
+		# self.__salida=[6,2]
+		self.__matriz=matriz
+		self.__entrada=entrada
+		self.__salida=salida
 
 ###############################################################################
 	def permitePaso(self,xy,dirProbable):

@@ -6,6 +6,8 @@ import time
 import random
 import sys
 
+import CreadorLab1
+import CreadorLab2
 import Laberinto
 import Hormiga
 import Colonia
@@ -18,7 +20,13 @@ cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no defau
 setea=MenuInicio.pantalla()
 print(setea)
 log=Log.Log()
-lab=Laberinto.Laberinto()
+#generar el laberinto aca
+
+creador= CreadorLab1.CreadorLab1(10,10,[0,0],"de",100)
+creador.crearLaberinto()
+lab=Laberinto.Laberinto(creador.matriz,[0,0],creador.salidaCreada)
+
+
 colony=Colonia.Colonia(setea[3],setea[2],lab,log,setea[4])
 inter=Interfaz.Interfaz(lab,colony,setea[0])
 
@@ -33,5 +41,6 @@ for i in range(setea[0]): #ciclos de vida de la colonia
 
 log.guardarEnArchivo()
 inter.devolverInforme(log.informe)
+print(creador.salidaCreada)
 
 ##########################################################################
