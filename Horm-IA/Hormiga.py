@@ -1,3 +1,5 @@
+#by hellfishg
+
 import random
 
 class Hormiga:
@@ -69,8 +71,18 @@ class Hormiga:
 
 ###############################################################################
     def __eleccion(self):
+        #elige una direccion random, y si sale la direccion por la que venia, tira otra vez.
         matrizDireciones = ["ar","de","ab","iz"]
+
+        try:
+            i = len(self.__memoria) -1
+            direContra = self.invertirDire(self.__memoria[i])
+        except:
+            direContra= ""
+
         aux= random.randint(0,3)
+        if matrizDireciones[aux] == direContra:
+            aux= random.randint(0,3)
 
         return matrizDireciones[aux]
 
@@ -111,4 +123,15 @@ class Hormiga:
     def __repr__(self):
         return "+Hormiga: {} en {} /Vida restante: {}'\n' |->Feromona: {}'\n'".format(self.nombre,self.posicion,self.ciclo,self.__feromonas)
 
+###############################################################################
+    def invertirDire(self,dire):
+        if dire =="ar":
+        	z="ab"
+        if dire =="de":
+        	z="iz"
+        if dire =="ab":
+        	z="ar"
+        if dire =="iz":
+        	z="de"
+        return z
 ###############################################################################
