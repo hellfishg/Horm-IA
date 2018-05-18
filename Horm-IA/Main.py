@@ -20,9 +20,11 @@ cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no defau
 setea=MenuInicio.pantalla()
 print(setea)
 log=Log.Log()
-#generar el laberinto aca
+#generar el laberinto aca:
 
-creador= CreadorLab1.CreadorLab1(10,10,[0,0],"de",100)
+#creador= CreadorLab1.CreadorLab1(10,10,[0,0],"de",100)
+creador= CreadorLab2.CreadorLab2(10,10,[0,0],"de",600)
+
 creador.crearLaberinto()
 lab=Laberinto.Laberinto(creador.matriz,[0,0],creador.salidaCreada)
 

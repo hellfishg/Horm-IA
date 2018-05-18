@@ -1,3 +1,5 @@
+#by lakhezis and hellfishg -- 10/05/2018
+
 import random
 from ConstructorLabs import ConstructorLabs
 
@@ -17,7 +19,7 @@ class CreadorLab2(ConstructorLabs):
 			restricciones= self.comprobarDireccionContraria(restricciones,self.direContraria)
 			direccionesACavar= self.decideCaminos(restricciones)
 			final=self.avanzarCaminos(direccionesACavar)
-			
+
 		self.salidaCreada=self.posicionActual
 ###############################################################################
 	def comprobarDireccionContraria(self,restricciones,direCont):

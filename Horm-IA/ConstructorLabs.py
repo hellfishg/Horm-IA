@@ -1,4 +1,4 @@
-#by hellfishg 13/05/2018
+#by hellfishg -- 13/05/2018
 
 class ConstructorLabs:
     #clase padre para ser heredada por los constructores de laberintos.

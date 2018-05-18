@@ -1,3 +1,5 @@
+#by hellfishg -- 10/05/2018
+
 import random
 from ConstructorLabs import ConstructorLabs
 
