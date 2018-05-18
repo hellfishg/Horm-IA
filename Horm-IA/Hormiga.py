@@ -81,8 +81,9 @@ class Hormiga:
             direContra= ""
 
         aux= random.randint(0,3)
-        if matrizDireciones[aux] == direContra:
-            aux= random.randint(0,3)
+        for a in range(1):
+            if matrizDireciones[aux] == direContra:
+                aux= random.randint(0,3)
 
         return matrizDireciones[aux]
 
