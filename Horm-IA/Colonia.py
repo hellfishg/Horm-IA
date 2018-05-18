@@ -44,8 +44,9 @@ class Colonia:
 
         for nombre in archivo.readlines():
             matrizNom.append(nombre.rstrip('\n'))
-            archivo.close()
-            num=random.randint(0,len(matrizNom)-1)
+            
+        archivo.close()
+        num=random.randint(0,len(matrizNom)-1)
 
         return matrizNom[num]
 
