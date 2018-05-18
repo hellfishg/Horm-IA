@@ -2,6 +2,10 @@
 import os
 
 from Menu.Ventana import Ventana
+from Menu.B_MenuCreadorLab import CreadorLab
+from Menu.C_ComenzarColonia import ComenzarColonia
+from Menu.D_Estadisticas import Estadisticas
+from Menu.E_Instrucciones import Instrucciones
 
 class MenuPrincipal (Ventana):
     def __init__(self,arg):
@@ -12,59 +16,35 @@ class MenuPrincipal (Ventana):
         pass
 ##############################################################################
     def imprimirMenu(self):
-        os.system('clear')
-        aux=None
-        verificar=True
-        setea=list()
-        while verificar:
-        	aux=input('Introduce la cantidad de ciclos que durara el programa: ')
-        	try:
-        		int(aux)
-        		verificar=False
-        	except:
-        		print("Tiene que ser en numeros enteros!")
-        setea.append(int(aux))
-        verificar=True
+        os.system("clear")
+        for i in range(23):
+            os.system("echo")
 
-        while verificar:
-        	aux=input('Introduce el tiempo que dura un movimiento de hormiga por pantalla (Recomendado 1): ')
-        	try:
-        		float(aux)
-        		verificar=False
-        	except:
-        		print("Tiene que ser en numeros enteros!")
-        setea.append(float(aux))
+        self.imprimirMarquesina()
+        self.imprimirDeArchivo(0,7,"Menu/menuPrincipal.txt")
 
-        verificar=True
-        while verificar:
-        	aux=input('Introduce la cantidad de ciclos de cada hormiga: ')
-        	try:
-        		int(aux)
-        		verificar=False
-        	except:
-        		print("Tiene que ser en numeros enteros!")
-        setea.append(int (aux))
+        aux=input(' Eleccion: ')
 
-        verificar=True
-        while verificar:
-        	aux=input('Introduce cuantas hormigas vivas habra al mismo tiempo: ')
-        	try:
-        		int(aux)
-        		verificar=False
-        	except:
-        		print("¡Tiene que ser en numeros enteros!")
-        setea.append(int (aux))
-
-        verificar=True
-        while verificar:
-        	aux=input('¿Las hormigas que llegan a la meta quedaran en la lista?(s/n): ')
-        	if aux== 's' or aux== 'n':
-        		verificar=False
-        	else:
-        		print("¡Tiene que ser s o n!")
-        setea.append(aux)
-
-        return setea
+        if self.procesarEleccion(aux.upper()) == False:
+            #Error de comando invalido
+            pass
 ##############################################################################
+    def procesarEleccion(self,elec):
+
+        if elec == 'A':
+            creadorLab=CreadorLab(self.arg,self)
+        if elec == 'B':
+            catalogoLabs=CatalogoLabs(self.arg,self)
+        if elec == 'C':
+            comenzarColonia=ComenzarColonia(self.arg,self)
+        if elec == 'D':
+            estadisticas=Estadisticas(self.arg,self)
+        if elec == 'E':
+            instrucciones=Instrucciones(self.arg,self)
+        if elec == 'F':
+            os._exit
+
+        return True
+
 ##############################################################################
 ##############################################################################

@@ -1,4 +1,6 @@
 #by hellfishg 13/05/2018
+import sys
+import os
 
 class Ventana:
     def __init__(self,menuAnterior,arg):
@@ -6,6 +8,10 @@ class Ventana:
         self.arg=arg
 ##############################################################################
     def imprimirMenu(self):
+        #Override
+        pass
+##############################################################################
+    def procesarEleccion(self):
         #Override
         pass
 ##############################################################################
@@ -56,6 +62,29 @@ class Ventana:
             else:
                 return False
 ##############################################################################
+    def imprimirMarquesina(self):
+        archivo=open("Menu/marquesina.txt", "r")
+        y=0
+        for nombre in archivo.readlines():
+            y+=1
+            self.dibujaAca(0,y,nombre)
+        archivo.close()
+###############################################################################
+    def imprimirDeArchivo(self,x,y,path):
+        archivo=open(str(path), "r")
+        texto=""
+        for linea in archivo.readlines():
+            texto+=linea
+
+        archivo.close()
+        self.dibujaAca(x,y,texto)
+###############################################################################
+    def dibujaAca(self,x, y, text):
+    #Dibuja un string en la posicion y,x
+        sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (y, x, text))
+        sys.stdout.flush()
+###############################################################################
+###############################################################################
 '''
 El formato de los codigos es, como habreis podido observar:
 [A;Bm

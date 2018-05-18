@@ -22,6 +22,9 @@ from Menu import A_MenuPrincipal
 arg=2
 pepe= A_MenuPrincipal.MenuPrincipal(arg)
 
+#time.sleep(10)
+
+
 
 # setea=MenuInicio.pantalla()
 # print(setea)

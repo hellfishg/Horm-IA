@@ -1,0 +1,17 @@
+
+|-------------------------------------------------------------|
+|                       MENU PRINCIPAL                        |
+|-------------------------------------------------------------|
+|                                                             |
+|   A) Crear un nuevo laberinto                               |
+|                                                             |
+|   B) Cargar laberintos guardados                            |
+|                                                             |
+|   C) Comenzar colonia de hormigas                           |
+|                                                             |
+|   D) Ver ultima estadistica                                 |
+|                                                             |
+|   E) Instrucciones                                          |
+|                                                             |
+|   F) Salir                                                  |
+|-------------------------------------------------------------|
