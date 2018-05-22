@@ -4,6 +4,7 @@ import os
 
 class Ventana:
     def __init__(self,menuAnterior,arg):
+        self.matriz=None
         self.menuAnterior = menuAnterior
         self.arg=arg
 ##############################################################################
@@ -24,7 +25,8 @@ class Ventana:
         #ver implementacion.
         pass
 ##############################################################################
-    def graficarLaberinto(self,mLab):
+    def graficarLaberinto(self,mLab,X,Y):
+        #grafica el laberinto en base a la matriz y la posicion deseada.
         largo=len(mLab)#maximo tamano de eje x
         alto=len(mLab[0])#maximo tamano de eje y
 
@@ -33,7 +35,7 @@ class Ventana:
                 dibX="[  ]"
                 dibY=" "
 
-                if self.sinSalida(x,y,matriz):
+                if self.sinSalida(x,y,mLab):
                     dibX="    "
 
                 if mLab[x][y][1] == "de":
@@ -44,8 +46,7 @@ class Ventana:
                 if mLab[x][y][2] == "ab":
                     dibY+="||"
 
-                X=self.pos_Lab_X
-                Y=self.pos_Lab_Y
+
                 self.dibujaAca((x*6)+ X , (y*2)+ Y, dibX)
                 self.dibujaAca((x*6)+ X , (y*2)+ Y+1 , dibY)
 ###############################################################################
@@ -84,6 +85,13 @@ class Ventana:
         sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (y, x, text))
         sys.stdout.flush()
 ###############################################################################
+    def comandoInvalido(self,fun):
+        os.system("clear")
+        for i in range(10):
+            os.system("echo")
+        print("INGRESE UNA LETRA CORRECTA!")
+        input('--OPRIMA ENTER PARA CONTINUAR--')
+        fun()
 ###############################################################################
 '''
 El formato de los codigos es, como habreis podido observar:

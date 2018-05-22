@@ -19,8 +19,27 @@ cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no defau
 
 from Menu import A_MenuPrincipal
 
-arg=2
+arg=None
 pepe= A_MenuPrincipal.MenuPrincipal(arg)
+
+
+# archivo=open("testMatriz.bin","w")
+# archivo.write( str(matriz))
+# archivo.close
+#
+# ################
+# archivo=open("testMatriz.bin","r")
+# matriz= archivo.read()
+#
+#
+# print(type(matriz))
+#
+# print(matriz)
+
+
+
+
+
 
 #time.sleep(10)
 

@@ -7,12 +7,12 @@ class CreadorLab1 (ConstructorLabs):
 
     def __init__(self,largo,alto,entrada,salida,ciclos):
         super().__init__(largo,alto)
-        self.ciclos=ciclos
+        self.ciclos=int(ciclos)
         self.salida=salida
         self.posicionActual=entrada
 
-        self.treintaPorciento= int(ciclos * 0.30)
-        self.diezPorciento= int(ciclos * 0.10)
+        self.treintaPorciento= int( float(ciclos)*0.30 )
+        self.diezPorciento= int( float(ciclos)*0.10 )
 
         self.salidaCreada=None
 

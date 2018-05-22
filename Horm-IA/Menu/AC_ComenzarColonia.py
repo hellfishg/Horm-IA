@@ -1,6 +1,9 @@
 import os
 
 from Menu.Ventana import Ventana
+from Log import Log
+from Hormiga import Hormiga
+from Colonia import Colonia
 
 class ComenzarColonia (Ventana):
     def __init__(self,arg,menuAnterior):

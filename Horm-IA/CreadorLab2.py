@@ -8,7 +8,7 @@ class CreadorLab2(ConstructorLabs):
 		super().__init__(largo,alto)
 		self.posicionActual=entrada
 		self.salida=salida
-		self.separacion=separacion
+		self.separacion=int(separacion)
 		self.direContraria=self.invertirDire(salida)#no esta bien hecho
 		self.salidaCreada=None
 ###############################################################################

@@ -2,18 +2,16 @@
 import os
 
 from Menu.Ventana import Ventana
-from Menu.B_MenuCreadorLab import CreadorLab
-from Menu.C_ComenzarColonia import ComenzarColonia
-from Menu.D_Estadisticas import Estadisticas
-from Menu.E_Instrucciones import Instrucciones
+from Menu.AA_MenuCreadorLab import CreadorLab
+from Menu.AB_CatalogoLabs import CatalogoLabs
+from Menu.AC_ComenzarColonia import ComenzarColonia
+from Menu.AD_Estadisticas import Estadisticas
+from Menu.AE_Instrucciones import Instrucciones
 
 class MenuPrincipal (Ventana):
     def __init__(self,arg):
         super().__init__(self,arg)
         self.imprimirMenu()
-##############################################################################
-    def imprimirMenu(self):
-        pass
 ##############################################################################
     def imprimirMenu(self):
         os.system("clear")
@@ -25,26 +23,33 @@ class MenuPrincipal (Ventana):
 
         aux=input(' Eleccion: ')
 
-        if self.procesarEleccion(aux.upper()) == False:
+        if self.procesarEleccion(aux.upper()) == None:
             #Error de comando invalido
-            pass
+            self.comandoInvalido(self.imprimirMenu)
+            
 ##############################################################################
     def procesarEleccion(self,elec):
 
         if elec == 'A':
             creadorLab=CreadorLab(self.arg,self)
+            return True
         if elec == 'B':
             catalogoLabs=CatalogoLabs(self.arg,self)
+            return True
         if elec == 'C':
             comenzarColonia=ComenzarColonia(self.arg,self)
+            return True
         if elec == 'D':
             estadisticas=Estadisticas(self.arg,self)
+            return True
         if elec == 'E':
             instrucciones=Instrucciones(self.arg,self)
+            return True
         if elec == 'F':
             os._exit
+            return True
 
-        return True
+        return None
 
 ##############################################################################
 ##############################################################################
