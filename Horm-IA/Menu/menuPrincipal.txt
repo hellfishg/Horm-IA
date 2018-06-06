@@ -5,7 +5,7 @@
 |                                                             |
 |   A) Crear un nuevo laberinto                               |
 |                                                             |
-|   B) Cargar laberintos guardados                            |
+|   B) Ver laberintos guardados                               |
 |                                                             |
 |   C) Comenzar colonia de hormigas                           |
 |                                                             |

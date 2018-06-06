@@ -9,7 +9,7 @@ class CreadorLab (Ventana):
     def __init__(self,arg,menuAnterior):
         super().__init__(menuAnterior,arg)
         self.imprimirMenu()
-        
+
 ##############################################################################
     def imprimirMenu(self):
         os.system("clear")
@@ -52,7 +52,6 @@ class CreadorLab (Ventana):
         auxElec.append(input(' Cantidad de ciclos: '))
 
         algoritmo=CreadorLab1(10,10,[0,0],"de",auxElec[0])
-
         generadorDeLabs=GeneradorDeLabs(self.arg,self,algoritmo)
         #enviar a la ventana de vista de laberintos.
 
@@ -60,13 +59,9 @@ class CreadorLab (Ventana):
     def algoritmoLab2(self):
         os.system("clear")
         auxElec=list()
-
-        print("algo")
-
         auxElec.append(input(' Cantidad de iteraciones de ramas: '))
 
         algoritmo=CreadorLab2(10,10,[0,0],"de",auxElec[0])
-
         generadorDeLabs=GeneradorDeLabs(self.arg,self,algoritmo)
 
 ##############################################################################

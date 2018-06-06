@@ -4,8 +4,8 @@ import pickle
 
 from Menu.Ventana import Ventana
 import Menu.A_MenuPrincipal
-from CreadorLab1 import CreadorLab1
-from CreadorLab2 import CreadorLab2
+# from CreadorLab1 import CreadorLab1
+# from CreadorLab2 import CreadorLab2
 
 class GeneradorDeLabs (Ventana):
     def __init__(self,arg,menuAnterior,algoritmo):
@@ -67,13 +67,13 @@ class GeneradorDeLabs (Ventana):
         matrizDeLabs=list()
 
         try:
-            pkl_file = open('BSDLabs.pkl', 'rb')
+            pkl_file = open('BDLabs.pkl', 'rb')
             matrizDeLabs = pickle.load(pkl_file)
             pkl_file.close()
         except:
             pass
 
-        pkl_file = open('BSDLabs.pkl', 'wb')
+        pkl_file = open('BDLabs.pkl', 'wb')
 
         elemento= [str(elecc),mLab]
         matrizDeLabs.append(elemento)
