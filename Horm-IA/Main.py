@@ -17,32 +17,60 @@ import MenuInicio
 
 cgitb.enable(format="text")#llama la funcion para el manejo de exepcion no default.
 
-setea=MenuInicio.pantalla()
-print(setea)
-log=Log.Log()
-#generar el laberinto aca:
+from Menu import A_MenuPrincipal
 
-#creador= CreadorLab1.CreadorLab1(10,10,[0,0],"de",100)
-creador= CreadorLab2.CreadorLab2(10,10,[0,0],"de",600)
-
-creador.crearLaberinto()
-lab=Laberinto.Laberinto(creador.matriz,[0,0],creador.salidaCreada)
+arg=None
+pepe= A_MenuPrincipal.MenuPrincipal(arg)
 
 
-colony=Colonia.Colonia(setea[3],setea[2],lab,log,setea[4])
-inter=Interfaz.Interfaz(lab,colony,setea[0])
+# archivo=open("testMatriz.bin","w")
+# archivo.write( str(matriz))
+# archivo.close
+#
+# ################
+# archivo=open("testMatriz.bin","r")
+# matriz= archivo.read()
+#
+#
+# print(type(matriz))
+#
+# print(matriz)
 
-for i in range(setea[0]): #ciclos de vida de la colonia
 
-    os.system('clear')
-    colony.avanzarHormigas()
-    inter.graficarDescripcionHormigasVivas()
-    inter.graficarLaberinto()
-    inter.graficarHormigas()
-    time.sleep(setea[1])
 
-log.guardarEnArchivo()
-inter.devolverInforme(log.informe)
-print(creador.salidaCreada)
+
+
+
+#time.sleep(10)
+
+
+
+# setea=MenuInicio.pantalla()
+# print(setea)
+# log=Log.Log()
+# #generar el laberinto aca:
+#
+# #creador= CreadorLab1.CreadorLab1(10,10,[0,0],"de",100)
+# creador= CreadorLab2.CreadorLab2(10,10,[0,0],"de",600)
+#
+# creador.crearLaberinto()
+# lab=Laberinto.Laberinto(creador.matriz,[0,0],creador.salidaCreada)
+#
+#
+# colony=Colonia.Colonia(setea[3],setea[2],lab,log,setea[4])
+# inter=Interfaz.Interfaz(lab,colony,setea[0])
+#
+# for i in range(setea[0]): #ciclos de vida de la colonia
+#
+#     os.system('clear')
+#     colony.avanzarHormigas()
+#     inter.graficarDescripcionHormigasVivas()
+#     inter.graficarLaberinto()
+#     inter.graficarHormigas()
+#     time.sleep(setea[1])
+#
+# log.guardarEnArchivo()
+# inter.devolverInforme(log.informe)
+# print(creador.salidaCreada)
 
 ##########################################################################

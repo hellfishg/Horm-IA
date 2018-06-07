@@ -11,7 +11,7 @@ class Interfaz:
         self.__ciclos=ciclos
         self.__ciclosRestantes=ciclos
         self.pos_Lab_X=50 #50  #debug:80
-        self.pos_Lab_Y=15 #15  #debug:10
+        self.pos_Lab_Y=10 #15  #debug:10
         self.graficarLaberinto()
 
 ###############################################################################
@@ -115,7 +115,7 @@ class Interfaz:
             print(info)
 
 ###############################################################################
-    
+
 
 
 '''

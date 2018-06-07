@@ -30,7 +30,7 @@ class GeneradorDeLabs (Ventana):
             self.graficarLaberinto(mLab,3,3)
 
             elecc=input(' Eleccion: ')
-            respuesta=self.procesarEleccion(elecc.upper(),mLab)
+            respuesta=self.procesarEleccion(elecc.upper(),mLab,backupAlgoritmo.salidaCreada)
 
             if respuesta == None:
                 #Error de comando invalido
@@ -41,11 +41,11 @@ class GeneradorDeLabs (Ventana):
                 rand=False
 
 ##############################################################################
-    def procesarEleccion(self,elec,mLab):
+    def procesarEleccion(self,elec,mLab,salida):
         if elec == 'A':
             return True
         if elec == 'B':
-            self.copiarEnArchivo(mLab)
+            self.copiarEnArchivo(mLab,salida)
             #!salir al menu principal
             menuPrincipal=Menu.A_MenuPrincipal.MenuPrincipal(self.arg)
             return False
@@ -58,7 +58,7 @@ class GeneradorDeLabs (Ventana):
 
         return None
 ##############################################################################
-    def copiarEnArchivo(self,mLab):
+    def copiarEnArchivo(self,mLab,salida):
         os.system("clear")
         for i in range(34):
             os.system("echo")
@@ -75,7 +75,7 @@ class GeneradorDeLabs (Ventana):
 
         pkl_file = open('BDLabs.pkl', 'wb')
 
-        elemento= [str(elecc),mLab]
+        elemento= [str(elecc),mLab,salida]
         matrizDeLabs.append(elemento)
 
         pickle.dump(matrizDeLabs, pkl_file)

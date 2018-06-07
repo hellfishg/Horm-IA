@@ -4,7 +4,7 @@ import os
 from Menu.Ventana import Ventana
 from Menu.AA_MenuCreadorLab import CreadorLab
 from Menu.AB_CatalogoLabs import CatalogoLabs
-from Menu.AC_ComenzarColonia import ComenzarColonia
+from Menu.AC_ElegirLaberinto import ElegirLaberinto
 from Menu.AD_Estadisticas import Estadisticas
 from Menu.AE_Instrucciones import Instrucciones
 
@@ -26,7 +26,7 @@ class MenuPrincipal (Ventana):
         if self.procesarEleccion(aux.upper()) == None:
             #Error de comando invalido
             self.comandoInvalido(self.imprimirMenu)
-            
+
 ##############################################################################
     def procesarEleccion(self,elec):
 
@@ -37,7 +37,7 @@ class MenuPrincipal (Ventana):
             catalogoLabs=CatalogoLabs(self.arg,self)
             return True
         if elec == 'C':
-            comenzarColonia=ComenzarColonia(self.arg,self)
+            comenzarColonia=ElegirLaberinto(self.arg,self)
             return True
         if elec == 'D':
             estadisticas=Estadisticas(self.arg,self)
