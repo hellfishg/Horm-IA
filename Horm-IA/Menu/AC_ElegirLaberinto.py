@@ -77,6 +77,8 @@ class ElegirLaberinto (Ventana):
         if elec == 'C':
             laberinto=self.matrizDeLabs[i]
             comenzarColonia=ComenzarColonia(self.arg,self.menuAnterior,laberinto)
+            input('OPRIMA CUALQUIER TECLA PARA VOLVER AL MENU PRINCIPAL')
+            self.menuAnterior.imprimirMenu()
             return "False"
         if elec == 'D':
             self.menuAnterior.imprimirMenu()

@@ -4,7 +4,7 @@ class Log:
 
     def __init__(self):
         self.informe=list()
-        self.archivo=open("../Textos/Informe.txt", "w")
+        self.archivo=open("Informe.txt", "w")
         self.archivo.close()
 
 ###############################################################################
@@ -13,7 +13,7 @@ class Log:
 
 ###############################################################################
     def guardarEnArchivo(self):
-        archivo=open("../Textos/Informe.txt", "a")
+        archivo=open("Informe.txt", "a")
         for log in self.informe:
             archivo.writelines(str(log)+'\n')
 
